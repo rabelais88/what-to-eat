@@ -1,6 +1,5 @@
 import React, { Component } from 'reactn';
-import logo from './logo.svg';
-import './App.css';
+import 'App.scss';
 import TextLoop from 'react-text-loop';
 
 class App extends Component {
@@ -22,13 +21,18 @@ class App extends Component {
           <TextLoop speed={300}>
             {this.state.menutexts.map(elMenu => <p>{elMenu}</p>)}
           </TextLoop>
-          <form onSubmit={this.submit}>
+          <form onSubmit={this.submit} style={{marginTop: '200px'}}>
             <label><input type="text" value={this.state.maxPrice} onChange={this.priceChange}/>원 이하</label>
             <ul>
             {this.global.place.map((elPlace, idx) => 
               (<li>
                 <label>
-                  <input type="radio" value={idx} name="places" checked={this.state.destination===idx} onchange={this.placeChange}/>{elPlace}
+                  <input type="radio"
+                    value={idx}
+                    name="places"
+                    checked={this.state.destination===idx}
+                    onchange={this.placeChange}/>
+                  {elPlace}
                 </label>
               </li>)
             )}
